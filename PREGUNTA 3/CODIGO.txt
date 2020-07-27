@@ -1,0 +1,32 @@
+--CREAMOS LA TABLA
+CREATE TABLE public.datos1
+(
+x int,
+y int,
+mes varchar(50),
+dia varchar(50),
+FFMC int,
+DMC int,
+DC int,
+ISI int,
+temperatura	int,
+RH int,
+viento int,
+lluvia int,
+zona int
+);
+
+--LEEMOS LOS DATOS CSV
+COPY public.datos1 FROM 'D:\EXAMEN 2-354\EXAMEN 2-354\PREGUNTA 3\DATOS.csv' DELIMITER ',' CSV HEADER;
+
+
+
+--SELECCIONAMOS ALGUN DATO A BUSCAR DE LA FILA MES POR EJEMPLO BUSCAMOS "MAR" DE LA COLUMNA MES 
+--ESTA NOS MUESTRA TODOS LOS DATOS DE ESA FILA CON ESE NOMBRE
+SELECT *
+FROM datos1;
+
+SELECT X, Y, mes, dia, FFMC, DMC, temperatura,RH, viento, lluvia, zona from datos1
+where mes = 'mar'
+GROUP BY X, Y, mes, dia, FFMC, DMC, temperatura,RH, viento, lluvia, zona
+--NOS MUESTRA TODAS LA FILAS QUE CONTIENEN EL MES DE MARZO
